@@ -1,0 +1,90 @@
+﻿@model CommonModel.Models.Common
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">CommonModel</h1>
+</div>
+
+<div>
+    <span class="text-muted my-2">User List</span>
+    @if(Model.UserList.Count > 0){
+        <table class="table table-striped border">
+            <tr class="table-secondary">
+                <th class="text-center">
+                    Id
+                </th>
+                <th>
+                    Name
+                </th>
+                <th class="text-center">
+                    Age
+                </th>
+            </tr>
+            @foreach (var item in Model.UserList)
+            {
+                <tr>
+                    <td class="text-center">
+                        @Html.DisplayFor(u => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(u => item.Name)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayFor(u => item.Age)
+                    </td>
+                </tr>
+            }
+        </table>
+    }else{
+        <h4 class="mt-5 mb-1 text-muted text-center">No Users!</h4>
+    }
+</div>
+<div>
+    <span class="text-muted my-2">Book List</span>
+    @if(Model.BookList.Count > 0){
+        <table class="table table-striped border">
+            <tr class="table-secondary">
+                <th class="text-center">
+                    Id
+                </th>
+                <th>
+                    Book
+                </th>
+                <th>
+                    Author
+                </th>
+                <th>
+                    Category
+                </th>
+                <th class="text-center">
+                    Released
+                </th>
+            </tr>
+            @foreach (var item in Model.BookList)
+            {
+                <tr>
+                    <td class="text-center">
+                        @Html.DisplayFor(u => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(u => item.Book)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(u => item.Author)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(u => item.Category)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayFor(u => item.Released)
+                    </td>
+                </tr>
+            }
+        </table>
+    }else{
+        <h4 class="mt-5 mb-1 text-muted text-center">No Books!</h4>
+    }
+</div>
